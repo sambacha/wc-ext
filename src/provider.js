@@ -1,13 +1,11 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import provider from "eth-provider";
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import provider from 'eth-provider';
 
 const wcProvider = new WalletConnectProvider({
-  infuraId: "8b014620351a4cbe814220743619df5b",
+  rpcUrl: 'https://api.staging.sushirelay.com/v1',
 });
 
-const fallbackProvider = provider([
-  "https://mainnet.infura.io/v3/8b014620351a4cbe814220743619df5b",
-]);
+const fallbackProvider = provider(['https://api.sushirelay.com/v1']);
 
 fallbackProvider.enable = () => {
   window.ethereum = wcProvider;
